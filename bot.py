@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 client = discord.Client()
-last_five = [0, 1, 2, 3, 4]  # To keep the last 5 messages. It will hold these values for now
+last_quote = ""  # To keep the last quote in the memory to send the link when "hangiyazı" is called.
 
 file = open("archive", "r", encoding="utf-8")
 lines = file.readlines()
@@ -18,7 +18,7 @@ archive = [line.rstrip("\n") for line in lines if "https://yazhocam.com/" not in
 help_message = "YazHocam Bot\n\n" \
                "**\n\n" \
                "YazHocam sitesindeki yazılardan rastgele bir kesit görmek için 'yazdırhocam' yaz\n\n" \
-               "Yazdırdığım bir kesitin hangi yazıdan olduğunu öğrenmek için 'hangiyazı' yaz\n\n" \
+               "Yazdırdığım en son kesitin hangi yazıdan olduğunu öğrenmek için 'hangiyazı' yaz\n\n" \
                "İstediğin yazarın yazılarında en çok kullandığı 10 kelimeyi görmek için '10kelime *yazar adı*' yaz\n\n" \
                "**\n\n" \
                "YazHocam Bot\n\n" \
@@ -29,18 +29,19 @@ print("bot has connected")
 
 @client.event
 async def on_message(message):
-    global last_five
+    global last_quote
     global help_message
-    last_five = [message.content] + last_five[:4]
 
     if message.author == client.user:
         return
 
     elif message.content == "yazdırhocam":
-        await message.channel.send(random.choice(archive))
+        random_quote = random.choice(archive)
+        last_quote = random_quote[:]
+        await message.channel.send(random_quote)
 
     elif message.content == "hangiyazı":
-        await message.channel.send(whichtext(last_five[1]))
+        await message.channel.send(whichtext(last_quote))
 
     elif message.content[:8] == "10kelime":
         await message.channel.send("Hazırlanıyor...")
