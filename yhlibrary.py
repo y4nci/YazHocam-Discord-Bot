@@ -83,11 +83,11 @@ def getauthor(author):
         article = file.read()
 
     _database_ = ""
-    nogo = ["\n", "-", "%", ",", ".", "/", "!", "?", ":", ";", "\t", "<", ">", "=", "^", "+", "&", "*", "(", ")", "[",
+    nogo = ["", "\n", "-", "%", ",", ".", "/", "!", "?", ":", ";", "\t", "<", ">", "=", "^", "+", "&", "*", "(", ")", "[",
             "]", "{", "}", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "\"", "”", "–", "’"]  # To eliminate unwanted characters
 
     words = [word.lower() for word in article.split(" ") if word not in nogo and not word.isdigit()]
-    _w_, _wc_, _wb_ = [], [], []  # These are some valuables that will help us sorting the most used words.
+    _w_, _wc_, _wb_ = [], [], []  # These are some variables that will help us sorting the most used words.
 
     for i in words:
         if i != "" and _w_.count(i) != 1:
