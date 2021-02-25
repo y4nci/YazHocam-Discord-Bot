@@ -89,11 +89,11 @@ def getauthor(author):
     words = [word.lower() for word in article.split(" ") if word not in nogo and not word.isdigit()]
     _w_, _wc_, _wb_ = [], [], []  # These are some variables that will help us sorting the most used words.
 
-    for i in words:
-        if i != "" and _w_.count(i) != 1:
-            _w_.append(i)
-            _wc_.append(words.count(i))
-            _wb_.append(words.count(i))
+    for word in words:
+        if word not in ["", " "] and _w_.count(word) != 1:
+            _w_.append(word)
+            _wc_.append(words.count(word))
+            _wb_.append(words.count(word))
 
     _wc_.sort(reverse=True)
     index = 1
@@ -110,7 +110,7 @@ def getauthor(author):
 
     _w_, _wc_, _wb_ = [], [], []
 
-    garbage = ["", "ve", "veya", "ile", "ama", "de", "da", "ancak", "çünkü", "eğer", "hâlbuki", "hem", "hiç değilse",
+    garbage = ["", " ", "ve", "veya", "ile", "ama", "de", "da", "ancak", "çünkü", "eğer", "hâlbuki", "hem", "hiç değilse",
                "ise", "ki", "lâkin", "meğer", "nasıl ki", "ne", "nasıl", "kim", "neden", "hiç", "hep", "öyle", "öyle ki",
                "sanki", "şu var ki", "üstelik", "yahut", "yalnız", "yani", "yoksa", "zira", "çünkü", "ile", "gibi", "için",
                "diye", "üzere", "kadar", "yalnız", "ancak", "karşın", "başka", "fakat", "dolayı", "ötürü", "beri", "göre",
@@ -138,7 +138,6 @@ def getauthor(author):
     erase()
 
     return output
-
 
 def whichtext(txt):
 
