@@ -2,13 +2,19 @@
 
 This is a Discord bot based on the content on https://yazhocam.com/. The website has more than 140 articles written by more than 60 authors and is operated by METU Media Society, which is based in METU.
 
-To run the code, first you should install the modules discord and dotenv, if they're not previously installed.
+Since to run the code one must have the token for the Discord Application, you unfortunately cannot run the code.
+
+If you could, you probably would want to install the modules discord and dotenv, if they're not previously installed in order to run the code.
 
   pip install discord
 
   pip install -U python-dotenv
+  
+Even though you can't run the code, you can add the bot to your server by clicking the link below.
 
-The working principle of the bot is quite simple, adding the bot in your server and running bot.py will suffice. Normally these bots run on the servers that run 7/24 and has huge features, but we don't have to do -and most probably won't need- this.
+  https://discord.com/api/oauth2/authorize?client_id=813836793531203655&permissions=0&scope=bot
+
+Normally these bots run on the servers that run 7/24 and has huge features, but we don't have to do -and most probably won't need- this.
 
 The bot -for now- has just a couple of functions.
 
@@ -20,14 +26,10 @@ The bot -for now- has just a couple of functions.
 
   "yardımhocam" is the command to see the help message.
   
-Every week a new article is uploaded to the site which means new quotes worth to see, so updating the archive is highly recommended. Running updater.py will do this elegantly.
+Every week a new article is uploaded to the site which means new quotes worth to see, so updating the archive is highly important. Running updater.py does this elegantly.
 
 To learn more about discord bots an find out how to make one, the site below is I think very useful. I suggest you to take a look at it if you're interested.
   
   https://realpython.com/how-to-make-a-discord-bot-python/
-  
-To add the bot to your Dİscord server, open this link:
-
-  https://discord.com/api/oauth2/authorize?client_id=813836793531203655&permissions=0&scope=bot
-  
+    
 Enjoy!
