@@ -86,7 +86,7 @@ def getauthor(author):
     nogo = ["\n", "-", "%", ",", ".", "/", "!", "?", ":", ";", "\t", "<", ">", "=", "^", "+", "&", "*", "(", ")", "[",
             "]", "{", "}", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "\"", "”", "–", "’"]  # To eliminate unwanted characters
 
-    words = [word.lower() for word in article.split(" ") if word not in nogo]
+    words = [word.lower() for word in article.split(" ") if word not in nogo and not word.isdigit()]
     _w_, _wc_, _wb_ = [], [], []  # These are some valuables that will help us sorting the most used words.
 
     for i in words:
@@ -114,7 +114,7 @@ def getauthor(author):
                "ise", "ki", "lâkin", "meğer", "nasıl ki", "ne", "nasıl", "kim", "neden", "hiç", "hep", "öyle", "öyle ki",
                "sanki", "şu var ki", "üstelik", "yahut", "yalnız", "yani", "yoksa", "zira", "çünkü", "ile", "gibi", "için",
                "diye", "üzere", "kadar", "yalnız", "ancak", "karşın", "başka", "fakat", "dolayı", "ötürü", "beri", "göre",
-               "bu", "şu", "o", "en"]
+               "bu", "şu", "o", "en", "daha"]
 
     # Now we will do another top 10 without conjunctions, prepositions etc.
 
