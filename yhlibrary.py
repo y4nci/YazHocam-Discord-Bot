@@ -153,8 +153,7 @@ def whichtext(txt):
     txtindex = texts.find(txt)
 
     if txtindex == -1:  # Error message
-        return "Bulamadım :(. Unutma, bir kesit paylaştıktan sonra bu komut yazılmadan araya başka bir mesaj girerse" \
-               " o yazıyı bulamam."
+        return "Bulamadım :( Yeni bir kesit istemeyi dene lütfen"
 
     linkindex = texts[txtindex:].find("https://yazhocam.com/")
     newlineindex = texts[txtindex + linkindex:].find("\n")
